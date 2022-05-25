@@ -4,6 +4,7 @@ class OptionList extends StatelessWidget {
   OptionList({
     required this.data,
     required this.onTap,
+    required this.suggestionListWidth,
     required this.suggestionListHeight,
     this.suggestionBuilder,
     this.suggestionListDecoration,
@@ -14,6 +15,8 @@ class OptionList extends StatelessWidget {
   final List<Map<String, dynamic>> data;
 
   final Function(Map<String, dynamic>) onTap;
+
+  final double suggestionListWidth;
 
   final double suggestionListHeight;
 
@@ -26,6 +29,8 @@ class OptionList extends StatelessWidget {
             decoration:
                 suggestionListDecoration ?? BoxDecoration(color: Colors.white),
             constraints: BoxConstraints(
+              maxWidth: suggestionListWidth,
+              minWidth: 0,
               maxHeight: suggestionListHeight,
               minHeight: 0,
             ),
